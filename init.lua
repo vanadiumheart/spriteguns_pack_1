@@ -78,3 +78,79 @@ else
 		}
 	})
 end
+
+spriteguns.register_gun("spriteguns_pack_1:supershorty",{
+	description = "Serbu Super Shorty Shotgun",
+	inventory_image = "supershorty_inv.png",
+	zoomfov = 60,
+	scale = 7.5,
+	range = 70,
+	fire_sound = "rem870_fire",
+	fire_gain = 10,
+	fire_sound_distant = "distant_hical",
+	size = 3,
+	loadtype = "manual",--"auto", "semi", and "manual"
+	ammo = "spriteguns:bullet_12",
+	firetime = .2,
+	offsetrecoil = 140,
+	targetrecoil = 90,
+	damage = 3,
+	maxdev = .18,
+	maxzoomdev = .08,
+	pellets = 12,
+	space = 3,
+	unload_amount = 1,
+	concealed = true,
+	spread = 45,
+	textures = {
+		prefix = "serbuss_",
+		hipidle = "hipidle.png",
+		hipidlenomag = "hipidle.png",
+		hipfire = "hipfireflash.png",
+		hippostfire = "hipfire.png",
+		aimidle = "aimidle.png",
+		aimidlenomag = "aimidle.png",
+		aimfire = "aimfireflash.png",
+		aimpostfire = "aimfire.png",
+		load = {
+			length = .75,
+			sounds = {nil, "rem870_rackslide"},
+			frames = {"hipidle.png", "load.png"},
+			zoomframes = {"aimidle.png", "loadzoom.png"}
+		},
+		reload = {
+			length = 1.15,
+			speed = .75,
+			loopstart = 2,
+			loopend = 5,
+			sounds = {nil, nil, "rem870_loadshell"},
+			frames = {"reload1.png", "reload2.png", "reload2.png", "reload3.png", "reload3.png", "reload4.png"}
+		},
+		unload = {
+			length = .5,
+			sounds = {nil, "rem870_rackslide"},
+			frames = {"hipidle.png", "load.png"},
+		},
+	},
+})
+if fancycrafts then
+	minetest.register_craft({
+		output = "spriteguns_pack_1:supershorty 1 65534",
+		recipe = {
+			{"gun_lathe:gun_barrel_carbon_steel", "", "", ""},
+			{"gun_lathe:gun_barrel_carbon_steel", "gun_lathe:gun_barrel_carbon_steel", "technic:carbon_steel_ingot", ""},
+			{"technic:carbon_steel_ingot", "basic_materials:plastic_sheet", "moreores:mithril_ingot", "basic_materials:plastic_strip"},
+			{"", "dye:black", "basic_materials:plastic_sheet", "dye:black"},
+		}
+	})
+else
+	minetest.register_craft({
+		output = "spriteguns_pack_1:supershorty 1 65534",
+		recipe = {
+			{"gun_lathe:gun_barrel_carbon_steel", "", "", ""},
+			{"gun_lathe:gun_barrel_carbon_steel", "gun_lathe:gun_barrel_carbon_steel", "technic:carbon_steel_ingot", ""},
+			{"technic:carbon_steel_ingot", "basic_materials:plastic_sheet", "moreores:mithril_ingot", "basic_materials:plastic_strip"},
+			{"", "dye:black", "basic_materials:plastic_sheet", "dye:black"},
+		}
+	})
+end
