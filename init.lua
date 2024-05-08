@@ -154,3 +154,82 @@ else
 		}
 	})
 end
+
+spriteguns.register_gun("spriteguns_pack_1:glock21",{
+	description = "Glock 21 Pistol",
+	inventory_image = "pardini_inv.png",
+	zoomfov = 60,
+	scale = 7.5,
+	range = 180,
+	fire_sound = "pardini_fire",
+	fire_gain = 10,
+	fire_sound_distant = "distant_local",
+	size = 13,
+	loadtype = "semi",--"auto", "semi", and "manual"
+	ammo = "spriteguns_pack_1:mag_glock21",
+	firetime = .125,
+	offsetrecoil = 70,
+	targetrecoil = 30,
+	damage = 4,
+	maxdev = .12,
+	maxzoomdev = .04,
+	magazine = true,
+	concealed = true,
+	spread = 4,
+	textures = {
+		prefix = "glock21_",
+		hipidle = "hipidle.png",
+		hipidlenomag = "hipidlenomag.png",
+		hipfire = "hipfire.png",
+		hippostfire = "hipidle.png",
+		aimidle = "aimidle.png",
+		aimidlenomag = "aimidlenomag.png",
+		aimfire = "aimfire.png",
+		aimpostfire = "aimidle.png",
+		load = {
+			length = 4*.25,
+			sounds = {nil, "thompson_charge"},
+			frames = {"load1.png", "load2.png", "load3.png", "load4.png"},
+		},
+		reload = {
+			length = 4*.33,
+			speed = .75,
+			sounds = {"thompson_load", nil, nil, "thompson_charge"},
+			frames = {"reload2.png", "reload1.png", "load3.png", "load1.png"}
+		},
+		unload = {
+			length = 5*.33,
+			speed = .75,
+			sounds = {nil, "thompson_charge", nil, "thompson_unload"},
+			frames = {"load1.png", "load2.png", "load3.png", "reload1.png", "reload2.png"},
+		},
+	},
+})
+
+minetest.register_tool("spriteguns_pack_1:mag_glock21", {
+	description = "Glock 21 Magazine",
+	inventory_image = "rangedweapons_9mm_mag.png",
+})
+if fancycrafts then
+	minetest.register_craft({
+		output = "spriteguns_pack_1:glock21 1 65534",
+		recipe = {
+			{"gun_lathe:gun_barrel_carbon_steel", "", "", ""},
+			{"basic_materials:plastic_sheet", "gun_lathe:gun_barrel_carbon_steel", "", ""},
+			{"dyes:black", "basic_materials:plastic_sheet", "technic:carbon_steel_ingot", "default:mese_shard", ""},
+			{"default:steel_ingot", "technic:carbon_steel_ingot", "basic_materials:plastic_sheet", "dyes:black"},
+		}
+	})
+else
+	minetest.register_craft({
+		output = "spriteguns_pack_1:glock21 1 65534",
+		recipe = {
+			{"default:steel_ingot", "", ""},
+			{"", "default:steel_ingot", "default:diamond"},
+			{"", "default:steel_ingot", ""},
+		}
+	})
+end
+
+
+
