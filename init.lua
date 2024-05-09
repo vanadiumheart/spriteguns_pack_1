@@ -157,7 +157,7 @@ end
 
 spriteguns.register_gun("spriteguns_pack_1:glock21",{
 	description = "Glock 21 Pistol",
-	inventory_image = "pardini_inv.png",
+	inventory_image = "glock21_inv.png",
 	zoomfov = 60,
 	scale = 7.5,
 	range = 180,
@@ -208,28 +208,38 @@ spriteguns.register_gun("spriteguns_pack_1:glock21",{
 
 minetest.register_tool("spriteguns_pack_1:mag_glock21", {
 	description = "Glock 21 Magazine",
-	inventory_image = "rangedweapons_9mm_mag.png",
+	inventory_image = "glock21_mag.png",
 })
 if fancycrafts then
 	minetest.register_craft({
 		output = "spriteguns_pack_1:glock21 1 65534",
 		recipe = {
-			{"gun_lathe:gun_barrel_carbon_steel", "", "", ""},
+			{"gun_lathe:gun_barrel_carbon_steel", "default:mese_crystal_fragment", "", ""},
 			{"basic_materials:plastic_sheet", "gun_lathe:gun_barrel_carbon_steel", "", ""},
-			{"dyes:black", "basic_materials:plastic_sheet", "technic:carbon_steel_ingot", "default:mese_shard", ""},
-			{"default:steel_ingot", "technic:carbon_steel_ingot", "basic_materials:plastic_sheet", "dyes:black"},
+			{"dye:black", "technic:carbon_steel_ingot", "technic:carbon_steel_ingot", "default:mese_crystal_fragment"},
+			{"technic:carbon_steel_ingot", "technic:carbon_steel_ingot", "basic_materials:plastic_sheet", "dye:black"},
 		}
 	})
 else
 	minetest.register_craft({
 		output = "spriteguns_pack_1:glock21 1 65534",
 		recipe = {
-			{"default:steel_ingot", "", ""},
-			{"", "default:steel_ingot", "default:diamond"},
-			{"", "default:steel_ingot", ""},
+			{"gun_lathe:gun_barrel_carbon_steel", "default:mese_crystal_fragment", "", ""},
+			{"basic_materials:plastic_sheet", "gun_lathe:gun_barrel_carbon_steel", "", ""},
+			{"dye:black", "technic:carbon_steel_ingot", "technic:carbon_steel_ingot", "default:mese_crystal_fragment"},
+			{"technic:carbon_steel_ingot", "technic:carbon_steel_ingot", "basic_materials:plastic_sheet", "dye:black"},
 		}
 	})
 end
+spriteguns.register_magazine("spriteguns_pack_1:mag_glock21", "spriteguns:bullet_45", 13)
+	minetest.register_craft({
+		output = "spriteguns_pack_1:mag_glock21 1 65534",
+		recipe = {
+			{"", "", ""},
+			{"", "technic:carbon_steel_ingot", ""},
+			{"", "basic_materials:steel_wire", ""},
+	}
+})
 
 
 
