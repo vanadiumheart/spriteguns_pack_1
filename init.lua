@@ -241,5 +241,78 @@ spriteguns.register_magazine("spriteguns_pack_1:mag_glock21", "spriteguns:bullet
 	}
 })
 
+spriteguns.register_gun("spriteguns_pack_1:stevens94a",{
+	description = "Stevens 94a Shotgun",
+	inventory_image = "stevens94a_inv.png",
+	zoomfov = 60,
+	scale = 7.5,
+	range = 100,
+	fire_sound = "rem870_fire",
+	fire_gain = 10,
+	fire_sound_distant = "distant_hical",
+	size = 1,
+	loadtype = "semi",--"auto", "semi", and "manual"
+	ammo = "spriteguns:bullet_12",
+	firetime = .2,
+	offsetrecoil = 120,
+	targetrecoil = 80,
+	damage = 3,
+	maxdev = .16,
+	maxzoomdev = .06,
+	pellets = 12,
+	space = 3,
+	magazine = false,
+	unload_amount = 1,
+	concealed = false,
+	spread = 35,
+	textures = {
+		prefix = "stevens94a_",
+		hipidle = "hipidle.png",
+		hipidlenomag = "hipidle.png",
+		hipfire = "hipfireflash.png",
+		hippostfire = "load6.png",
+		aimidle = "aimidle.png",
+		aimidlenomag = "aimidle.png",
+		aimfire = "aimfireflash.png",
+		aimpostfire = "aimfire.png",
+		load = {
+			length = 2.5,
+			sounds = {nil, "rem870_rackslide"},
+			frames = {"load1.png", "load2.png", "hipidle.png", "load4.png", "reload3.png", "load5.png", "hipfire.png"},
+		},
+		reload = {
+			length = 2.5,
+			speed = 1,
+			sounds = {nil, nil, nil, nil, "rem870_loadshell"},
+			frames = {"reload1.png", "reload2.png", "reload3.png", "reload1.png", "load5.png", "load2.png"}
+		},
+		unload = {
+			length = .5,
+			sounds = {nil, "rem870_rackslide"},
+			frames = {"load5.png", "reload1.png", "reload3.png"},
+		},
+	},
+})
+if fancycrafts then
+	minetest.register_craft({
+		output = "spriteguns_pack_1:stevens94a 1 65534",
+		recipe = {
+			{"gun_lathe:gun_barrel_carbon_steel", "", "", "", ""},
+			{"", "gun_lathe:gun_barrel_carbon_steel", "", "", ""},
+			{"group:tree", "gun_lathe:gun_barrel_carbon_steel", "gun_lathe:gun_barrel_carbon_steel", "technic:carbon_steel_ingot", ""},
+			{"", "group:tree", "group:tree", "moreores:mithril_ingot", ""},
+			{"", "", "", "group:tree", "group:tree"},
+		}
+	})
+else
+	minetest.register_craft({
+		output = "spriteguns_pack_1:stevens94a 1 65534",
+		recipe = {
+			{"default:steel_ingot", "", ""},
+			{"group:tree", "default:steel_ingot", "default:mese_crystal"},
+			{"", "group:tree", "group:tree"},
+		}
+	})
+end
 
 
