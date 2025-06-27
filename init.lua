@@ -84,7 +84,7 @@ spriteguns.register_gun("spriteguns_pack_1:supershorty",{
 	inventory_image = "supershorty_inv.png",
 	zoomfov = 60,
 	scale = 7.5,
-	range = 70,
+	range = 80,
 	fire_sound = "rem870_fire",
 	fire_gain = 10,
 	fire_sound_distant = "distant_hical",
@@ -92,13 +92,13 @@ spriteguns.register_gun("spriteguns_pack_1:supershorty",{
 	loadtype = "manual",--"auto", "semi", and "manual"
 	ammo = "spriteguns:bullet_12",
 	firetime = .2,
-	offsetrecoil = 140,
-	targetrecoil = 90,
+	offsetrecoil = 150,
+	targetrecoil = 100,
 	damage = 3,
 	maxdev = .18,
-	maxzoomdev = .08,
+	maxzoomdev = .07,
 	pellets = 12,
-	space = 3,
+	space = 2,
 	unload_amount = 1,
 	concealed = true,
 	spread = 45,
@@ -244,52 +244,52 @@ spriteguns.register_magazine("spriteguns_pack_1:mag_glock21", "spriteguns:bullet
 spriteguns.register_gun("spriteguns_pack_1:stevens94a",{
 	description = "Stevens 94a Shotgun",
 	inventory_image = "stevens94a_inv.png",
-	zoomfov = 60,
+	zoomfov = 50,
 	scale = 7.5,
-	range = 100,
+	range = 120,
 	fire_sound = "rem870_fire",
 	fire_gain = 10,
 	fire_sound_distant = "distant_hical",
 	size = 1,
-	loadtype = "semi",--"auto", "semi", and "manual"
+	loadtype = "manual",--"auto", "semi", and "manual"
 	ammo = "spriteguns:bullet_12",
-	firetime = .2,
-	offsetrecoil = 120,
-	targetrecoil = 80,
-	damage = 3,
-	maxdev = .16,
+	firetime = 1,
+	offsetrecoil = 100,
+	targetrecoil = 70,
+	damage = 2,
+	maxdev = .14,
 	maxzoomdev = .06,
 	pellets = 12,
 	space = 3,
 	magazine = false,
 	unload_amount = 1,
 	concealed = false,
-	spread = 35,
+	spread = 20,
 	textures = {
 		prefix = "stevens94a_",
 		hipidle = "hipidle.png",
 		hipidlenomag = "hipidle.png",
 		hipfire = "hipfireflash.png",
-		hippostfire = "load6.png",
+		hippostfire = "hipfire.png",
 		aimidle = "aimidle.png",
 		aimidlenomag = "aimidle.png",
 		aimfire = "aimfireflash.png",
 		aimpostfire = "aimfire.png",
 		load = {
-			length = 2.5,
-			sounds = {nil, "rem870_rackslide"},
-			frames = {"load1.png", "load2.png", "hipidle.png", "load4.png", "reload3.png", "load5.png", "hipfire.png"},
+			length = 1.5,
+			sounds = {nil, nil, nil, "thompson_charge", nil},
+			frames = {"load1.png", "load2.png", "load3.png", "load4.png"},
 		},
 		reload = {
-			length = 2.5,
-			speed = 1,
-			sounds = {nil, nil, nil, nil, "rem870_loadshell"},
-			frames = {"reload1.png", "reload2.png", "reload3.png", "reload1.png", "load5.png", "load2.png"}
+			length = 3.5,
+			speed = .75,
+			sounds = {nil, "gunslinger_charge", nil, nil, nil, "rem870_loadshell", nil, "gunslinger_charge", nil, "thompson_charge"},
+			frames = {"preload1.png", "preload2.png", "reload1.png", "reload2.png", "reload3.png", "reload4.png", "reload4.png", "load2.png", "load3.png", "load4.png"},
 		},
 		unload = {
-			length = .5,
-			sounds = {nil, "rem870_rackslide"},
-			frames = {"load5.png", "reload1.png", "reload3.png"},
+			length = 2,
+			sounds = {nil, "rem870_loadshell", nil, nil, nil, "gunslinger_charge"},
+			frames = {"unload1.png", "unload2.png", "unload3.png", "unload4.png", "unload4.png", "load2.png"},
 		},
 	},
 })
@@ -315,4 +315,78 @@ else
 	})
 end
 
+spriteguns.register_gun("spriteguns_pack_1:mac10",{
+	description = "MAC-10 Submachine gun",
+	inventory_image = "mac10_inv.png",
+	zoomfov = 80,
+	scale = 7.5,
+	range = 180,
+	fire_sound = "thompson_fire",
+	fire_sound_distant = "distant_local",
+	size = 30,
+	loadtype = "auto",--"auto", "semi", and "manual"
+	ammo = "spriteguns_pack_1:mag_mac10",
+	firetime = .06,
+	offsetrecoil = 50,
+	magazine = true,
+	targetrecoil = 30,
+	damage = 5,
+	maxdev = .14,
+	maxzoomdev = .05,
+	unload_amount = 1,
+	space = 1,
+	spread = 4,
+	textures = {
+		prefix = "mac10_",
+		hipidle = "hipidle.png",
+		hipidlenomag = "hipidlenomag.png",
+		hipfire = "hipfire.png",
+		hippostfire = "hipfire.png",
+		aimidle = "aimidle.png",
+		aimidlenomag = "aimidle.png",
+		aimfire = "aimfire.png",
+		aimpostfire = "aimfire.png",
+		load = {
+			length = 1,
+			sounds = {nil, "thompson_charge"},
+			frames = {"load1.png", "load2.png", "load3.png", "load4.png"}
+		},
+		reload = {
+			length = 3/2,
+			speed = .75,
+			sounds = {nil, nil, "thompson_load"},
+			frames = {"reload3.png", "reload2.png", "reload1.png"}
+		},
+		unload = {
+			length = 3/2,
+			speed = .75,
+			sounds = {"thompson_unload", nil, nil},
+			frames = {"reload1.png", "reload2.png", "reload3.png"}
+		},
+	},
+})
 
+minetest.register_tool("spriteguns_pack_1:mag_mac10", {
+	description = "Mac-10 Magazine",
+	inventory_image = "rangedweapons_smg_mag.png",
+})
+if fancycrafts then
+	minetest.register_craft({
+		output = "spriteguns_pack_1:mac10 1 65534",
+		recipe = {
+			{"default:steel_ingot", "", "", ""},
+			{"group:tree", "gun_lathe:gun_barrel_carbon_steel", "", ""},
+			{"group:tree", "", "moreores:mithril_ingot", ""},
+			{"", "", "group:tree", "group:tree"},
+		}
+	})
+else
+	minetest.register_craft({
+		output = "spriteguns_pack_1:mac10 1 65534",
+		recipe = {
+			{"default:steel_ingot", "default:steel_ingot", ""},
+			{"", "default:steel_ingot", "default:diamond"},
+			{"", "group:tree", "group:tree"},
+		}
+	})
+end
