@@ -1,3 +1,17 @@
+local casingmat = "default:bronze_ingot"
+local bulletmat = "default:steel_ingot"
+local shotguncasemat = "default:paper"
+local magspringmat = "group:sapling"
+local fancycrafts = minetest.get_modpath("gun_lathe") ~= nil and minetest.get_modpath("assembler") ~= nil
+if minetest.get_modpath("basic_materials") then
+	casingmat = "basic_materials:brass_ingot"
+	shotguncasemat = "basic_materials:plastic_strip"
+	magspringmat = "basic_materials:steel_wire"
+end
+if minetest.get_modpath("technic") then
+	bulletmat = "technic:lead_ingot"
+end
+
 spriteguns.register_gun("spriteguns_pack_1:zastavam85",{
 	description = "Zastava M85 Rifle",
 	inventory_image = "zm85_inv.png",
@@ -299,8 +313,8 @@ if fancycrafts then
 		recipe = {
 			{"gun_lathe:gun_barrel_carbon_steel", "", "", "", ""},
 			{"", "gun_lathe:gun_barrel_carbon_steel", "", "", ""},
-			{"group:tree", "gun_lathe:gun_barrel_carbon_steel", "gun_lathe:gun_barrel_carbon_steel", "technic:carbon_steel_ingot", ""},
-			{"", "group:tree", "group:tree", "moreores:mithril_ingot", ""},
+			{"", "group:tree", "gun_lathe:gun_barrel_carbon_steel", "technic:carbon_steel_ingot", ""},
+			{"", "", "group:tree", "moreores:mithril_ingot", ""},
 			{"", "", "", "group:tree", "group:tree"},
 		}
 	})
@@ -321,7 +335,7 @@ spriteguns.register_gun("spriteguns_pack_1:mac10",{
 	zoomfov = 80,
 	scale = 7.5,
 	range = 180,
-	fire_sound = "thompson_fire",
+	fire_sound = "mac10_fire",
 	fire_sound_distant = "distant_local",
 	size = 30,
 	loadtype = "auto",--"auto", "semi", and "manual"
@@ -353,14 +367,14 @@ spriteguns.register_gun("spriteguns_pack_1:mac10",{
 		},
 		reload = {
 			length = 3/2,
-			speed = .75,
-			sounds = {nil, nil, "thompson_load"},
-			frames = {"reload3.png", "reload2.png", "reload1.png"}
+			speed = 1.5,
+			sounds = {nil, nil, "thompson_load", nil, nil, nil, "thompson_charge"},
+			frames = {"reload3.png", "reload2.png", "inter.png", "load1.png", "load2.png", "load3.png", "load4.png"}
 		},
 		unload = {
 			length = 3/2,
 			speed = .75,
-			sounds = {"thompson_unload", nil, nil},
+			sounds = {nil, "thompson_unload", nil},
 			frames = {"reload1.png", "reload2.png", "reload3.png"}
 		},
 	},
@@ -368,25 +382,35 @@ spriteguns.register_gun("spriteguns_pack_1:mac10",{
 
 minetest.register_tool("spriteguns_pack_1:mag_mac10", {
 	description = "Mac-10 Magazine",
-	inventory_image = "rangedweapons_smg_mag.png",
+	inventory_image = "mag_mac10.png",
 })
 if fancycrafts then
 	minetest.register_craft({
 		output = "spriteguns_pack_1:mac10 1 65534",
 		recipe = {
-			{"default:steel_ingot", "", "", ""},
-			{"group:tree", "gun_lathe:gun_barrel_carbon_steel", "", ""},
-			{"group:tree", "", "moreores:mithril_ingot", ""},
-			{"", "", "group:tree", "group:tree"},
+			{"gun_lathe:gun_barrel_carbon_steel", "default:steel_ingot", "", ""},
+			{"basic_materials:steel_strip", "gun_lathe:gun_barrel_carbon_steel", "default:steel_ingot", "basic_materials:steel_strip"},
+			{"", "basic_materials:steel_strip", "moreores:mithril_ingot", "default:steel_ingot"},
+			{"basic_materials:steel_strip", "default:steel_ingot", "default:steel_ingot", "basic_materials:steel_bar"},
 		}
 	})
 else
 	minetest.register_craft({
 		output = "spriteguns_pack_1:mac10 1 65534",
 		recipe = {
-			{"default:steel_ingot", "default:steel_ingot", ""},
-			{"", "default:steel_ingot", "default:diamond"},
+			{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
+			{"default:steel_ingot", "default:steel_ingot", "default:diamond"},
 			{"", "group:tree", "group:tree"},
 		}
 	})
 end
+
+spriteguns.register_magazine("spriteguns_pack_1:mag_mac10", "spriteguns:bullet_45", 30)
+	minetest.register_craft({
+		output = "spriteguns_pack_1:mag_mac10 1 65534",
+		recipe = {
+			{"basic_materials:steel_strip", "", "basic_materials:steel_strip"},
+			{"basic_materials:steel_strip", "", "basic_materials:steel_strip"},
+			{"basic_materials:steel_strip", "basic_materials:steel_wire", "basic_materials:steel_strip"},
+	}
+})
