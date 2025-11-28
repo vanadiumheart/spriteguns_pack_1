@@ -15,7 +15,7 @@ end
 spriteguns.register_gun("spriteguns_pack_1:zastavam85",{
 	description = "Zastava M85 Rifle",
 	inventory_image = "zm85_inv.png",
-	zoomfov = 45,
+	zoomfov = 40,
 	scale = 7.5,
 	range = 350,
 	fire_sound = "cz527_fire",
@@ -332,7 +332,7 @@ end
 spriteguns.register_gun("spriteguns_pack_1:mac10",{
 	description = "MAC-10 Submachine gun",
 	inventory_image = "mac10_inv.png",
-	zoomfov = 80,
+	zoomfov = 67,
 	scale = 7.5,
 	range = 180,
 	fire_sound = "mac10_fire",
