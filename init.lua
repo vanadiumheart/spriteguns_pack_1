@@ -17,7 +17,7 @@ spriteguns.register_gun("spriteguns_pack_1:zastavam85",{
 	inventory_image = "zm85_inv.png",
 	zoomfov = 40,
 	scale = 7.5,
-	range = 350,
+	range = 360,
 	fire_sound = "cz527_fire",
 	fire_gain = 10,
 	fire_sound_distant = "distant_hical",
@@ -84,11 +84,9 @@ else
 	minetest.register_craft({
 		output = "spriteguns_pack_1:zastavam85 1 65534",
 		recipe = {
-			{"gun_lathe:gun_barrel_stainless_steel", "default:diamond", "", "", ""},
-			{"", "gun_lathe:gun_barrel_stainless_steel", "default:obsidian_shard", "", ""},
-			{"", "group:tree", "gun_lathe:gun_barrel_stainless_steel", "default:diamond", ""},
-			{"", "", "group:tree", "moreores:mithril_block", ""},
-			{"", "", "", "group:tree", "group:tree"},
+			{"default:steel_ingot", "default:diamond", ""},
+			{"group:tree", "default:steel_ingot", "default:diamond"},
+			{"", "group:tree", "group:tree"},
 		}
 	})
 end
@@ -99,7 +97,7 @@ spriteguns.register_gun("spriteguns_pack_1:supershorty",{
 	zoomfov = 60,
 	scale = 7.5,
 	range = 80,
-	fire_sound = "rem870_fire",
+	fire_sound = "serbu_fire",
 	fire_gain = 10,
 	fire_sound_distant = "distant_hical",
 	size = 3,
@@ -161,10 +159,9 @@ else
 	minetest.register_craft({
 		output = "spriteguns_pack_1:supershorty 1 65534",
 		recipe = {
-			{"gun_lathe:gun_barrel_carbon_steel", "", "", ""},
-			{"gun_lathe:gun_barrel_carbon_steel", "gun_lathe:gun_barrel_carbon_steel", "technic:carbon_steel_ingot", ""},
-			{"technic:carbon_steel_ingot", "basic_materials:plastic_sheet", "moreores:mithril_ingot", "basic_materials:plastic_strip"},
-			{"", "dye:black", "basic_materials:plastic_sheet", "dye:black"},
+			{"", "", ""},
+			{"default:steel_ingot", "default:steel_ingot", "default:mese_crystal"},
+			{"", "group:tree", "group:tree"},
 		}
 	})
 end
@@ -175,7 +172,7 @@ spriteguns.register_gun("spriteguns_pack_1:glock21",{
 	zoomfov = 60,
 	scale = 7.5,
 	range = 180,
-	fire_sound = "pardini_fire",
+	fire_sound = "glock21_fire",
 	fire_gain = 10,
 	fire_sound_distant = "distant_local",
 	size = 13,
@@ -238,10 +235,9 @@ else
 	minetest.register_craft({
 		output = "spriteguns_pack_1:glock21 1 65534",
 		recipe = {
-			{"gun_lathe:gun_barrel_carbon_steel", "default:mese_crystal_fragment", "", ""},
-			{"basic_materials:plastic_sheet", "gun_lathe:gun_barrel_carbon_steel", "", ""},
-			{"dye:black", "technic:carbon_steel_ingot", "technic:carbon_steel_ingot", "default:mese_crystal_fragment"},
-			{"technic:carbon_steel_ingot", "technic:carbon_steel_ingot", "basic_materials:plastic_sheet", "dye:black"},
+			{"default:steel_ingot", "", ""},
+			{"", "default:steel_ingot", "default:mese_crystal"},
+			{"", "default:steel_ingot", ""},
 		}
 	})
 end
@@ -260,8 +256,8 @@ spriteguns.register_gun("spriteguns_pack_1:stevens94a",{
 	inventory_image = "stevens94a_inv.png",
 	zoomfov = 50,
 	scale = 7.5,
-	range = 120,
-	fire_sound = "rem870_fire",
+	range = 110,
+	fire_sound = "stevens94_fire",
 	fire_gain = 10,
 	fire_sound_distant = "distant_hical",
 	size = 1,
@@ -278,7 +274,7 @@ spriteguns.register_gun("spriteguns_pack_1:stevens94a",{
 	magazine = false,
 	unload_amount = 1,
 	concealed = false,
-	spread = 20,
+	spread = 18,
 	textures = {
 		prefix = "stevens94a_",
 		hipidle = "hipidle.png",
@@ -291,13 +287,13 @@ spriteguns.register_gun("spriteguns_pack_1:stevens94a",{
 		aimpostfire = "aimfire.png",
 		load = {
 			length = 1.5,
-			sounds = {nil, nil, nil, "thompson_charge", nil},
+			sounds = {nil, nil, nil, "stevens94_charge", nil},
 			frames = {"load1.png", "load2.png", "load3.png", "load4.png"},
 		},
 		reload = {
 			length = 3.5,
 			speed = .75,
-			sounds = {nil, "gunslinger_charge", nil, nil, nil, "rem870_loadshell", nil, "gunslinger_charge", nil, "thompson_charge"},
+			sounds = {nil, "gunslinger_charge", nil, nil, nil, "rem870_loadshell", nil, "gunslinger_charge", nil, "stevens94_charge"},
 			frames = {"preload1.png", "preload2.png", "reload1.png", "reload2.png", "reload3.png", "reload4.png", "reload4.png", "load2.png", "load3.png", "load4.png"},
 		},
 		unload = {
@@ -323,7 +319,7 @@ else
 		output = "spriteguns_pack_1:stevens94a 1 65534",
 		recipe = {
 			{"default:steel_ingot", "", ""},
-			{"group:tree", "default:steel_ingot", "default:mese_crystal"},
+			{"group:tree", "default:steel_ingot", "default:diamond"},
 			{"", "group:tree", "group:tree"},
 		}
 	})
@@ -334,7 +330,7 @@ spriteguns.register_gun("spriteguns_pack_1:mac10",{
 	inventory_image = "mac10_inv.png",
 	zoomfov = 67,
 	scale = 7.5,
-	range = 180,
+	range = 70,
 	fire_sound = "mac10_fire",
 	fire_sound_distant = "distant_local",
 	size = 30,
@@ -398,9 +394,9 @@ else
 	minetest.register_craft({
 		output = "spriteguns_pack_1:mac10 1 65534",
 		recipe = {
-			{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
-			{"default:steel_ingot", "default:steel_ingot", "default:diamond"},
-			{"", "group:tree", "group:tree"},
+			{"default:steel_ingot", "default:steel_ingot", ""},
+			{"", "default:steel_ingot", "default:diamond"},
+			{"", "default:steel_ingot", "group:tree"},
 		}
 	})
 end
