@@ -96,7 +96,7 @@ spriteguns.register_gun("spriteguns_pack_1:supershorty",{
 	inventory_image = "supershorty_inv.png",
 	zoomfov = 60,
 	scale = 7.5,
-	range = 80,
+	range = 24,
 	fire_sound = "serbu_fire",
 	fire_gain = 10,
 	fire_sound_distant = "distant_hical",
@@ -113,7 +113,7 @@ spriteguns.register_gun("spriteguns_pack_1:supershorty",{
 	space = 2,
 	unload_amount = 1,
 	concealed = true,
-	spread = 45,
+	spread = 50,
 	textures = {
 		prefix = "serbuss_",
 		hipidle = "hipidle.png",
@@ -178,10 +178,10 @@ spriteguns.register_gun("spriteguns_pack_1:glock21",{
 	size = 13,
 	loadtype = "semi",--"auto", "semi", and "manual"
 	ammo = "spriteguns_pack_1:mag_glock21",
-	firetime = .125,
+	firetime = .100,
 	offsetrecoil = 70,
 	targetrecoil = 30,
-	damage = 4,
+	damage = 5,
 	maxdev = .12,
 	maxzoomdev = .04,
 	magazine = true,
@@ -204,13 +204,13 @@ spriteguns.register_gun("spriteguns_pack_1:glock21",{
 		},
 		reload = {
 			length = 4*.33,
-			speed = .75,
+			speed = .90,
 			sounds = {"thompson_load", nil, nil, "thompson_charge"},
 			frames = {"reload2.png", "reload1.png", "load3.png", "load1.png"}
 		},
 		unload = {
 			length = 5*.33,
-			speed = .75,
+			speed = 1,
 			sounds = {nil, "thompson_charge", nil, "thompson_unload"},
 			frames = {"load1.png", "load2.png", "load3.png", "reload1.png", "reload2.png"},
 		},
