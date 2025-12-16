@@ -286,13 +286,13 @@ spriteguns.register_gun("spriteguns_pack_1:stevens94a",{
 		aimfire = "aimfireflash.png",
 		aimpostfire = "aimfire.png",
 		load = {
-			length = 1.5,
+			length = 1,
 			sounds = {nil, nil, nil, "stevens94_charge", nil},
 			frames = {"load1.png", "load2.png", "load3.png", "load4.png"},
 		},
 		reload = {
 			length = 3.5,
-			speed = .90,
+			speed = 1,
 			sounds = {nil, "gunslinger_charge", nil, nil, nil, "rem870_loadshell", nil, "gunslinger_charge", nil, "stevens94_charge"},
 			frames = {"preload1.png", "preload2.png", "reload1.png", "reload2.png", "reload3.png", "reload4.png", "reload4.png", "load2.png", "load3.png", "load4.png"},
 		},
